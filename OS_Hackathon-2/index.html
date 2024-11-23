@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadlock Recovery System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Deadlock Recovery System</h1>
+    
+    <form id="deadlockForm">
+        <label for="appName">Application Name:</label>
+        <input type="text" id="appName" name="appName" required>
+
+        <label for="threadCount">Number of Threads:</label>
+        <input type="number" id="threadCount" name="threadCount" required>
+
+        <label for="resources">Resources Allocated (comma-separated):</label>
+        <textarea id="resources" name="resources" rows="4" required></textarea>
+
+        <label for="waitFor">Wait-For Relationships (format: T1->T2, T2->T1):</label>
+        <textarea id="waitFor" name="waitFor" rows="4" required></textarea>
+
+        <label for="strategy">Resolution Strategy:</label>
+        <select id="strategy" name="strategy" required>
+            <option value="terminate">Thread Termination</option>
+            <option value="preempt">Resource Preemption</option>
+            <option value="priority">Priority Adjustments</option>
+        </select>
+
+        <button type="submit">Analyze Deadlock</button>
+    </form>
+
+    <div id="result" class="result" style="display:none;"></div>
+    <div id="visualization" class="result"></div>
+    <div id="prevention" class="prevention" style="display:none;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
